@@ -1,12 +1,16 @@
+import 'package:clime_provider/models/weather_model.dart';
 import 'package:clime_provider/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CityScreen extends StatelessWidget {
-  const CityScreen({Key? key}) : super(key: key);
+  CityScreen({Key? key}) : super(key: key);
+  String city = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -36,16 +40,19 @@ class CityScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(20.0),
-                child:  TextField(
+                child: TextField(
                   style: const TextStyle(color: Colors.black),
                   decoration: kTextFieldInputDecoration,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    city = value;
+                  },
                 ),
               ),
               TextButton(
-                onPressed: () {
-
-                },
+                onPressed: () async {
+                  await Provider.of<WeatherModel>(context, listen: false).getWeatherByCity(city);
+                  Navigator.pop(context);
+                  },
                 child: const Text(
                   'Get Weather',
                   style: buttonTextStyle,

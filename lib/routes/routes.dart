@@ -16,7 +16,7 @@ class RouteManager {
       case locationPage:
         return CustomPageRoute(builder: (context) => const LocationScreen());
       case cityPage:
-        return CustomPageRoute(builder: (context) => const CityScreen());
+        return CustomPageRoute(builder: (context) =>  CityScreen());
         default:
         throw const FormatException('Route not found!');
     }

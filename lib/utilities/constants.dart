@@ -4,7 +4,8 @@ const baseUrlWeather = 'https://api.openweathermap.org/data/2.5';
 
 const tempTextStyle = TextStyle(fontSize: 100.0, fontFamily: 'Spartan MB');
 const messageTextStyle = TextStyle(fontSize: 60.0, fontFamily: 'Spartan MB');
-const buttonTextStyle = TextStyle(fontSize: 30.0, fontFamily: 'Spartan MB');
+const buttonTextStyle =
+    TextStyle(fontSize: 30.0, fontFamily: 'Spartan MB', color: Colors.white);
 const conditionTextStyle = TextStyle(fontSize: 100.0);
 const kTextFieldInputDecoration = InputDecoration(
   filled: true,
